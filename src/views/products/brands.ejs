@@ -1,0 +1,69 @@
+<!--
+  Kalawati Enterprises Website: The Official Website For Kalawati Enterprises
+  Copyright (C) 2022  Vidhu Kant Sharma <vidhukant@protonmail.ch>
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>
+    Kalawati Enterprises BETA Products (Brands) Page
+  </title>
+
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  <link rel="stylesheet" type="text/css" href="/css/products.css" />
+</head>
+
+<!-- product card to be used to display the products -->
+<% const card = (data) => { %>
+  <div class="wide-card" id="<%= data.BrandId %>">
+    <span class="wide-card-title"><%= data.DisplayName %></span>
+    <span class="wide-card-links-container">
+      <a href="/products/brands?show_details=<%= data.BrandId %>#<%= data.BrandId %>">Info</a>
+      <a>Download Catalogues</a>
+      <a href="/products/brands/<%= data.BrandId %>">Browse Products</a>
+    </span>
+    <span class="wide-card-logo-container">
+      <img class="wide-card-logo" src="<%= data.LogoURL %>" alt="Failed to load <%= data.DisplayName %> logo."/>
+    </span>
+  </div>
+<% } %>
+
+<body>
+  <!-- navbar -->
+  <%- include("../partials/navbar", {activePage: "/products"}); %>
+  <!-- category switcher -->
+  <%- include("switcher", {activeCategory: "/brands"}); %>
+
+  <!-- container for the product cards -->
+  <div class="wide-cards-container">
+    <!-- Render the product cards -->
+    <% if (brands.length === 0) { %>
+      <%- include("../partials/errors/EmptyResponse") %>
+    <% } else { %>
+      <%= brands.forEach(i => card(i)); %>
+    <% } %>
+  </div>
+  <!-- display info of brand if it is in url params -->
+  <% if (typeof(showDetailsOf) != 'undefined') { %>
+    <%- include("brand_info", {brandId: showDetailsOf, brandDetails: brandDetails, brandCategories: brandCategories, prevPage: `/products/brands#${showDetailsOf}`}) %>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,176 @@
+// Kalawati Enterprises Website: The Official Website For Kalawati Enterprises
+// Copyright (C) 2022  Vidhu Kant Sharma <vidhukant@protonmail.ch>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+@import "../colors";
+@import "../transitions";
+@import "_products_info";
+@import "_brands";
+
+.category-switcher-container {
+  width: 100%;
+  margin: 2rem 0 1rem 0;
+  height: $switcher-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  .category-switcher {
+    background-color: $card-background-color;
+    height: $switcher-height;
+    width: $switcher-width;
+    padding-left: $switcher-side-padding;
+    padding-right: $switcher-side-padding - 1;
+    border-radius: $switcher-height;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: $border;
+    box-shadow: $default-shadow;
+
+    .text {
+      font-size: 2rem;
+      color: $dark-foreground-color;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 80%;
+
+      a {
+        height: $button-height;
+        width: $button-width;
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $dark-foreground-color;
+        background-color: $bright-background-color;
+        border-radius: 2rem;
+        border: 0.13rem solid $dark-background-color;
+        transition: background-color $time-short;
+      }
+
+      a:hover {
+        background-color: $hover-color;
+      }
+
+      .active {
+        background-color: $active-color;
+      }
+    }
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wide-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  .card-title {
+    @include title;
+  }
+
+  .card-subtitle {
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: $secondary-foreground-color;
+
+    margin-bottom: 0.3rem;
+  }
+
+  .card-description {
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: $dark-foreground-color;
+  }
+
+  .card-button-links-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    bottom: 0.5rem; left: 0;
+    width: 100%;
+    transform: scale(0, 0);
+    transition: transform $time-short - 0.3;
+
+    .card-button-link {
+      height: $button-height - 0.8;
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-decoration: underline;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $dark-foreground-color;
+      background-color: $bright-background-color;
+      transition: color $time-short;
+    }
+
+    .card-button-link:hover {
+      color: $active-color;
+    }
+  }
+
+  .card-images-container {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    img {
+      height: 15rem;
+      border: 1px solid $dark-background-color;
+    }
+  }
+
+  position: relative;
+  background-color: $card-background-color;
+  border: $border;
+  min-height: $card-height;
+  width: $card-width;
+  margin: 1rem;
+  padding: 0.3rem 0.7rem;
+  box-sizing: border-box;
+  box-shadow: $default-shadow;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0.1rem 0.1rem 0.3rem 0.08rem $dark-background-color;
+  transform: scale(1.05, 1.05);
+
+  .card-button-links-container {
+    display: flex;
+    transform: scale(1, 1);
+  }
+}

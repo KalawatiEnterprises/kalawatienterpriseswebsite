@@ -1,0 +1,22 @@
+@media only screen and (max-device-width: 1300px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+
+    .logo-anchor {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-device-width: 600px) {
+  .navbar {
+    background-color: green;
+    flex-direction: column;
+    align-items: center;
+
+    .logo-anchor {
+      display: none;
+    }
+  }
+}
