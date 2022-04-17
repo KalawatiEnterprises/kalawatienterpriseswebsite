@@ -1,49 +1,33 @@
 // Kalawati Enterprises Website: The Official Website For Kalawati Enterprises
 // Copyright (C) 2022  Vidhu Kant Sharma <vidhukant@protonmail.ch>
-// 
+//
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-// import external libraries
-import express from "express";
-// import internal libraries
-import products from "./routes/products.js";
-import photos from "./routes/photos.js";
+@import "colors";
 
-// get port from ENV or use fallback
-const PORT = process.env.PORT || "3000";
+.contact-card-container {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-// this is the server
-const app = express();
-
-// use ./public directory
-app.use(express.static('public'));
-
-// set view engine and views directory for EJS
-app.set("view engine", "ejs")
-app.set('views', "src/views");
-
-// use products router
-app.use("/products", products);
-app.use("/photos", photos);
-
-// start the app
-app.listen(PORT);
-
-app.get("/", (_, res) => {
-  res.render("homepage");
-});
-
-app.get("/contact", (_, res) => {
-  res.render("contactpage");
-});
+  .contact-card {
+    background-color: $card-background-color;
+    min-height: 70vh;
+    width: 80%;
+    border: 0.13rem solid $dark-background-color;
+    box-shadow: $default-shadow;
+  }
+}

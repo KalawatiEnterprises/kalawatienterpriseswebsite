@@ -41,10 +41,20 @@
 <% } %>
 
 <body>
+  <% const requestedBrand = products[0].Brand %>
   <!-- navbar -->
   <%- include("../partials/navbar", {activePage: "/products"}); %>
   <!-- category switcher -->
   <%- include("switcher", {activeCategory: "/brands"}); %>
+
+  <% if (brandCategories.length > 0) { %>
+    <span class="brand-filter-display">
+      Currently Filtering For:
+      <% brandCategories.forEach((i, j) => { %>
+        <%=`${requestedCategories.includes(i.CategoryId.toString()) ? `${requestedBrand} ${i.CategoryName}` : ""}` %>
+      <% }) %>
+    </span>
+  <% }%>
 
   <!-- container for the product cards -->
   <div class="cards-container">

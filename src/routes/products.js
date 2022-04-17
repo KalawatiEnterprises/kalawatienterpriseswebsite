@@ -67,14 +67,6 @@ router.get("/brands", async (req, res) => {
   );
 });
 
-
-// get categories for products available in the brand
-router.get("/brands/:brandId/categories", (req, res) => {
-  db.query(query, (_, categories) => 
-    res.send(categories)
-  );
-});
-
 router.get("/brands/:brandId", (req, res) => {
   const categories = req.query.categories;
   // wether categories params is requested
@@ -98,11 +90,16 @@ router.get("/brands/:brandId", (req, res) => {
     ${ categoriesNum > 1 ? `AND SubCategory1 in (${categories})` : "" }
     ${ categoriesNum > 2 ? `AND SubCategory2 in (${categories})` : "" }
     ${ categoriesNum > 3 ? `AND SubCategory3 in (${categories})` : "" }
-    )`;
+    ); SELECT DISTINCT(Categories.CategoryName), Categories.CategoryId FROM Products 
+    INNER JOIN Categories ON Products.Category = Categories.CategoryId 
+    WHERE Brand = ${req.params.brandId}`;
 
   db.query(getCategories ? queryWithCategories : query, (_, data) =>
-    // res.send(data)
-    res.render("products/brand", { products: data })
+    res.render("products/brand", {
+      products: getCategories ? data[0] : data, 
+      brandCategories: getCategories ? data[1] : [],
+      requestedCategories: getCategories ? categories.split(",") : []
+    })
   );
 });
 
