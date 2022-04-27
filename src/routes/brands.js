@@ -26,8 +26,7 @@ const router = express.Router();
 
 // return all brands
 router.get("/all", (_, res) => {
-  const query = `SELECT BrandId, DisplayName, Name, LogoURL FROM Brands`
-
+  const query = `SELECT BrandId, DisplayName, Name, LogoURL FROM Brands`;
   db.query(query, 
     (_, data) => res.render("brands/index", { brands: data })
   );
@@ -37,7 +36,7 @@ router.get("/all", (_, res) => {
 // TODO: SELECT * is used
 // TODO: Use new template: Brand.ejs to show only a brand without switcher
 router.get("/:brandId", (req, res) => {
-  const query = `SELECT * FROM Brands WHERE BrandId = ${req.params.brandId}`
+  const query = `SELECT * FROM Brands WHERE BrandId = ${req.params.brandId}`;
   db.query(query, 
     (_, data) => res.render("brands/brand", { data: data })
   );
@@ -50,12 +49,26 @@ router.get("/:brandId/products", (req, res) => {
   FROM Products
   INNER JOIN Brands ON Products.Brand = Brands.BrandId
   INNER JOIN Categories ON Products.Category = Categories.CategoryId
-  WHERE Brand = ${req.params.brandId}`
+  WHERE Brand = ${req.params.brandId}`;
   db.query(query, 
     (_, data) => res.render("products/index", { 
       products: data, 
       switcherOption: "/brands" 
     })
+  );
+});
+
+// return all the sub/categories of products associated with brand
+router.get("/:brandId/categories", (req, res) => {
+  const query = `SELECT DISTINCT(Categories.CategoryName), Categories.CategoryId
+  FROM Products
+  INNER JOIN Categories ON Products.Category = Categories.CategoryId
+  OR Products.SubCategory1 = Categories.CategoryId
+  OR Products.SubCategory2 = Categories.CategoryId
+  OR Products.SubCategory3 = Categories.CategoryId
+  WHERE Brand = ${req.params.brandId}`;
+  db.query(query, (_, data) => 
+    res.send(data)
   );
 });
 
