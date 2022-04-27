@@ -189,6 +189,13 @@
   background-color: #10e3b2;
 }
 
+.brand-filter-display {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
 .cards-container {
   display: flex;
   flex-direction: row;

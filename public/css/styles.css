@@ -59,15 +59,18 @@
   .navbar .logo-anchor {
     display: none;
   }
+  .navbar .links {
+    padding: 0;
+  }
 }
 @media only screen and (max-device-width: 600px) {
   .navbar {
-    background-color: green;
     flex-direction: column;
     align-items: center;
   }
   .navbar .logo-anchor {
     display: none;
+    font-size: 1rem;
   }
 }
 * {

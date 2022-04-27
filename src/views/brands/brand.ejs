@@ -31,39 +31,17 @@
   <link rel="stylesheet" type="text/css" href="/css/products.css" />
 </head>
 
-<!-- product card to be used to display the products -->
-<% const card = (data) => { %>
-  <div class="wide-card" id="<%= data.BrandId %>">
-    <span class="wide-card-title"><%= data.DisplayName %></span>
-    <span class="wide-card-links-container">
-      <a href="/products/brands?show_details=<%= data.BrandId %>#<%= data.BrandId %>">Info</a>
-      <a>Download Catalogues</a>
-      <a href="/products/brands/<%= data.BrandId %>">Browse Products</a>
-    </span>
-    <span class="wide-card-logo-container">
-      <img class="wide-card-logo" src="<%= data.LogoURL %>" alt="Failed to load <%= data.DisplayName %> logo."/>
-    </span>
-  </div>
-<% } %>
-
 <body>
   <!-- navbar -->
   <%- include("../partials/navbar", {activePage: "/products"}); %>
-  <!-- category switcher -->
-  <%- include("switcher", {activeCategory: "/brands"}); %>
 
-  <!-- container for the product cards -->
-  <div class="wide-cards-container">
-    <!-- Render the product cards -->
-    <% if (brands.length === 0) { %>
-      <%- include("../partials/errors/EmptyResponse") %>
-    <% } else { %>
-      <%= brands.forEach(i => card(i)); %>
-    <% } %>
-  </div>
+  <h1>COMING SOON</h1>
+
   <!-- display info of brand if it is in url params -->
+  <!--
   <% if (typeof(showDetailsOf) != 'undefined') { %>
     <%- include("brand_info", {brandId: showDetailsOf, brandDetails: brandDetails, brandCategories: brandCategories, prevPage: `/products/brands#${showDetailsOf}`}) %>
   <% } %>
+  -->
 </body>
 </html>

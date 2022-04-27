@@ -42,26 +42,16 @@
       <img src="/photos/products/<%= data.ProductId %>/1" alt="<%= data.Name %> Side Image"/>
     </div>
   </div>
-
-  <!-- 
-  <div class="image-card">
-    <img src="/photos/<%= data.ProductId %>/0"/>
-    <div class="card-title"><%= data.Name %></div>
-    <div class="card-subtitle"><%= `${data.Brand} ${data.Category}` %></div>
-    <div class="card-description"><%= data.Description %></div>
-  </div>
-  -->
 <% } %>
 
 <body>
   <!-- navbar -->
-  <%- include("../partials/navbar", {activePage: "/products"}); %>
+  <%- include("../partials/navbar", {activePage: "products"}); %>
   <!-- category switcher -->
-  <%- include("switcher", {activeCategory: "/"}); %>
+  <%- include("../partials/switcher", {activeCategory: switcherOption ? switcherOption : "/"}); %>
 
   <!-- container for the product cards -->
   <div class="cards-container">
-    <!-- TODO: connect it with switcher -->
     <!-- Render the product cards -->
     <% if (products.length === 0) { %>
       <%- include("../partials/errors/EmptyResponse") %>

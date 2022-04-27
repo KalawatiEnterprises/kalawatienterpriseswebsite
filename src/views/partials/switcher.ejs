@@ -16,7 +16,7 @@
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
-<% const categories = [{Name: "Brand", Anchor: "/brands"}, {Name: "Category", Anchor: "/categories"}, {Name: "All", Anchor: "/"}] %>
+<% const categories = [{Name: "Brand", Anchor: "/brands/all", Id: "brand"}, {Name: "Category", Anchor: "/categories/all", Id: "category"}, {Name: "All", Anchor: "/products/all", Id: "all"}] %>
 
 <div class="category-switcher-container">
   <div class="category-switcher">
@@ -24,7 +24,7 @@
     <span class="buttons">
       <!-- generate links while checking and highlighting active link -->
       <% categories.forEach(cat => { %>
-        <a href="<%= "/products" + cat.Anchor %>" class="<%= activeCategory === cat.Anchor ? 'active' : '' %>">
+        <a href="<%= cat.Anchor %>" class="<%= activeCategory === cat.Id ? 'active' : '' %>">
           <%= cat.Name %>
         </a>
       <% }) %>

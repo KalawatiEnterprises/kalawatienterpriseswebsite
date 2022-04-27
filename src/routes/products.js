@@ -16,9 +16,6 @@
 
 import express from "express";
 import db from "../db.js";
-import fetch from "node-fetch";
-
-const BASE_URL = "http://localhost:3000";
 
 // connect to database
 db.connect(err => {

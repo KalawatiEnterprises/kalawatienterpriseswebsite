@@ -17,7 +17,8 @@
 // import external libraries
 import express from "express";
 // import internal libraries
-import products from "./routes/products.js";
+//import products from "./routes/products.js";
+import brands from "./routes/brands.js";
 import photos from "./routes/photos.js";
 
 // get port from ENV or use fallback
@@ -34,7 +35,8 @@ app.set("view engine", "ejs")
 app.set('views', "src/views");
 
 // use products router
-app.use("/products", products);
+// app.use("/products", products);
+app.use("/brands", brands);
 app.use("/photos", photos);
 
 // start the app

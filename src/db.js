@@ -19,7 +19,7 @@ import mysql from "mysql";
 const config = {
   host: "localhost",
   user: "zt",
-  password: "lmao not showing it",
+  password: "",
   database: "kalawatidb",
   multipleStatements: true
 }
