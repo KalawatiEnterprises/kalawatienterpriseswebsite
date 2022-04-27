@@ -17,29 +17,21 @@
 import express from "express";
 import db from "../db.js";
 
-// connect to database
-db.connect(err => {
-  if (err) throw err;
-});
-
 const router = express.Router();
 
 // return all brands
 router.get("/all", (_, res) => {
   const query = `SELECT BrandId, DisplayName, Name, LogoURL FROM Brands`;
   db.query(query, 
-    (_, data) => res.render("brands/index", { brands: data })
-  );
+    (_, data) => res.render("brands/index", { brands: data }));
 });
 
 // return info about brand
 // TODO: SELECT * is used
-// TODO: Use new template: Brand.ejs to show only a brand without switcher
 router.get("/:brandId", (req, res) => {
   const query = `SELECT * FROM Brands WHERE BrandId = ${req.params.brandId}`;
   db.query(query, 
-    (_, data) => res.render("brands/brand", { data: data })
-  );
+    (_, data) => res.render("brands/brand", { data: data }));
 });
 
 // return products related to specific brand
@@ -53,7 +45,7 @@ router.get("/:brandId/products", (req, res) => {
   db.query(query, 
     (_, data) => res.render("products/index", { 
       products: data, 
-      switcherOption: "/brands" 
+      switcherOption: "brand" 
     })
   );
 });
@@ -68,8 +60,7 @@ router.get("/:brandId/categories", (req, res) => {
   OR Products.SubCategory3 = Categories.CategoryId
   WHERE Brand = ${req.params.brandId}`;
   db.query(query, (_, data) => 
-    res.send(data)
-  );
+    res.send(data));
 });
 
 export default router;

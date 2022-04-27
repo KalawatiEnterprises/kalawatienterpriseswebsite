@@ -38,7 +38,7 @@
     <span class="wide-card-links-container">
       <a href="/brands/<%= data.BrandId %>">Info</a>
       <a>Download Catalogues</a>
-      <a href="/products/brands/<%= data.BrandId %>">Browse Products</a>
+      <a href="/brands/<%= data.BrandId %>/products">Browse Products</a>
     </span>
     <span class="wide-card-logo-container">
       <img class="wide-card-logo" src="<%= data.LogoURL %>" alt="Failed to load <%= data.DisplayName %> logo."/>
@@ -48,7 +48,7 @@
 
 <body>
   <!-- navbar -->
-  <%- include("../partials/navbar", {activePage: "/products"}); %>
+  <%- include("../partials/navbar", {activePage: "products"}); %>
   <!-- category switcher -->
   <%- include("../partials/switcher", {activeCategory: "brand"}); %>
 

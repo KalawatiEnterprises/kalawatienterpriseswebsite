@@ -24,39 +24,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <title>
-    Kalawati Enterprises BETA Products Page
+    Kalawati Enterprises BETA Categories Page
   </title>
 
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="/css/products.css" />
+  <link rel="stylesheet" type="text/css" href="/css/brands.css" />
 </head>
 
 <!-- product card to be used to display the products -->
 <% const card = (data) => { %>
-  <div class="card">
-    <div class="card-title"><%= data.Name %></div>
-    <div class="card-subtitle"><%= `${data.Brand} ${data.Category}` %></div>
-    <div class="card-description"><%= data.Description %></div>
-    <div class="card-images-container">
-      <img src="/photos/products/<%= data.ProductId %>/0" alt="<%= data.Name %> Front Image"/>
-      <img src="/photos/products/<%= data.ProductId %>/1" alt="<%= data.Name %> Side Image"/>
-    </div>
+  <div class="wide-card" id="<%= data.BrandId %>">
+    <span class="wide-card-title"><%= data.DisplayName %></span>
+    <span class="wide-card-links-container">
+      <a href="/brands/<%= data.BrandId %>">Info</a>
+      <a>Download Catalogues</a>
+      <a href="/brands/<%= data.BrandId %>/products">Browse Products</a>
+    </span>
+    <span class="wide-card-logo-container">
+      <img class="wide-card-logo" src="<%= data.LogoURL %>" alt="Failed to load <%= data.DisplayName %> logo."/>
+    </span>
   </div>
 <% } %>
 
 <body>
   <!-- navbar -->
-  <%- include("../partials/navbar", { activePage: "products" }); %>
+  <%- include("../partials/navbar", {activePage: "products"}); %>
   <!-- category switcher -->
-  <%- include("../partials/switcher", { activeCategory: switcherOption }); %>
+  <%- include("../partials/switcher", {activeCategory: "category"}); %>
 
   <!-- container for the product cards -->
-  <div class="cards-container">
+  <div class="wide-cards-container">
     <!-- Render the product cards -->
-    <% if (products.length === 0) { %>
+    <% if (categories.length === 0) { %>
       <%- include("../partials/errors/EmptyResponse") %>
     <% } else { %>
-      <%= products.forEach(i => card(i)); %>
+      <%= categories.forEach(i => card(i)); %>
     <% } %>
   </div>
 </body>

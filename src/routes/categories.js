@@ -19,15 +19,11 @@ import db from "../db.js";
 
 const router = express.Router();
 
-// send all products with category and brand id replaced with actual names
+// send all categories
 router.get("/all", (_, res) => {
-  const query = `SELECT ProductId, Products.Name, Description, 
-  Categories.CategoryName AS Category, Brands.DisplayName AS Brand
-  FROM Products
-  INNER JOIN Brands ON Products.Brand = Brands.BrandId
-  INNER JOIN Categories ON Products.Category = Categories.CategoryId`;
+  const query = `SELECT CategoryName, CategoryId FROM Categories`;
   db.query(query, (_, data) =>
-    res.render("products/index", { products: data, switcherOption: "all" }));
+    res.render("categories/index", { categories: data, switcherOption: "categories" }));
 });
 
 export default router;

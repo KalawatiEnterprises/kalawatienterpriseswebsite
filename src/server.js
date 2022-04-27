@@ -16,9 +16,11 @@
 
 // import external libraries
 import express from "express";
+
 // import internal libraries
-//import products from "./routes/products.js";
+import products from "./routes/products.js";
 import brands from "./routes/brands.js";
+import categories from "./routes/categories.js";
 import photos from "./routes/photos.js";
 
 // get port from ENV or use fallback
@@ -35,17 +37,16 @@ app.set("view engine", "ejs")
 app.set('views', "src/views");
 
 // use products router
-// app.use("/products", products);
+app.use("/products", products);
 app.use("/brands", brands);
+app.use("/categories", categories);
 app.use("/photos", photos);
 
 // start the app
 app.listen(PORT);
 
-app.get("/", (_, res) => {
-  res.render("homepage");
-});
+app.get("/", (_, res) => res.redirect("/home"));
+app.get("/home", (_, res) => res.render("homepage"));
 
-app.get("/contact", (_, res) => {
-  res.render("contactpage");
-});
+// TODO: /contact deserves its own router
+app.get("/contact", (_, res) => res.render("contactpage"));

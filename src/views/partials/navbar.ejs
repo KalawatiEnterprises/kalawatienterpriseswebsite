@@ -17,7 +17,7 @@
 -->
 
 <div class="navbar">
-  <% const links = [{Name: "Home", Anchor: "/"}, {Name: "Products", Anchor: "/products"}, {Name: "Contact Us", Anchor: "/contact"}, {Name: "Updates", Anchor: "/updates"}, {Name: "Offers", Anchor: "/offers"}, {Name: "Locate Us", Anchor: "/locate"} ] %>
+  <% const links = [{Name: "Home", Anchor: "/home", Id: "home"}, {Name: "Products", Anchor: "/products/all", Id: "products"}, {Name: "Contact Us", Anchor: "/contact", Id: "contact"}, {Name: "Updates", Anchor: "/updates", Id: "updates"}, {Name: "Offers", Anchor: "/offers", Id: "offers"}, {Name: "Locate Us", Anchor: "/locate", Id: "locate"} ] %>
 
   <a class="logo-anchor" href="/">
     <span class="logo">
@@ -27,9 +27,9 @@
 
   <span class="links">
     <% links.forEach(link => { %>
-    <a href="<%= link.Anchor %>" class="<%= activePage === link.Anchor ? 'active' : '' %>">
-      <%= link.Name %>
-    </a>
+      <a href="<%= link.Anchor %>" class="<%= activePage === link.Id ? 'active' : '' %>">
+        <%= link.Name %>
+      </a>
     <% }) %>
   </span>
 </div>
