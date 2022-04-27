@@ -1,0 +1,78 @@
+// Kalawati Enterprises Website: The Official Website For Kalawati Enterprises
+// Copyright (C) 2022  Vidhu Kant Sharma <vidhukant@protonmail.ch>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+@import "../colors";
+@import "../cards";
+@import "../switcher";
+
+.wide-cards-container {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wide-card {
+  background-color: $card-background-color;
+  border: $border;
+  height: $wide-card-height * 2;
+  width: 46rem;
+  margin: 1rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  box-shadow: $default-shadow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .wide-card-title {
+    @include card-title;
+    font-size: 2.5rem;
+    width: 20rem;
+    // border: 1px solid green;
+  }
+
+  .wide-card-links-container {
+    display: flex;
+    justify-content: center;
+
+    a {
+      margin: 0 0.5rem;
+      color: $dark-foreground-color;
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-decoration: underline;
+      transition: background-color $time-short;
+      padding: 0.1rem;
+    }
+
+    a:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  .wide-card-logo-container {
+    display: flex;
+    justify-content: center;
+    width: 20rem;
+
+    img {
+      max-width: 20rem;
+      max-height: $wide-card-height - 0.5; 
+    }
+  }
+}

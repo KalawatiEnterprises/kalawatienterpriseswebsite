@@ -19,11 +19,14 @@ import db from "../db.js";
 
 const router = express.Router();
 
+const groupByParent = (x) => 
+  x.filter(i => !i.ParentId).map(i => ({ Parent: i, Children: x.filter(j => j.ParentId === i.CategoryId)}));
+
 // send all categories
 router.get("/all", (_, res) => {
-  const query = `SELECT CategoryName, CategoryId FROM Categories`;
+  const query = `SELECT CategoryName, CategoryId, ParentId FROM Categories`;
   db.query(query, (_, data) =>
-    res.render("categories/index", { categories: data, switcherOption: "categories" }));
+    res.render("categories/index", { categories: groupByParent(data), switcherOption: "categories" }));
 });
 
 export default router;

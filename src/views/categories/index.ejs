@@ -28,20 +28,13 @@
   </title>
 
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
-  <link rel="stylesheet" type="text/css" href="/css/brands.css" />
+  <link rel="stylesheet" type="text/css" href="/css/categories.css" />
 </head>
 
-<!-- product card to be used to display the products -->
 <% const card = (data) => { %>
-  <div class="wide-card" id="<%= data.BrandId %>">
-    <span class="wide-card-title"><%= data.DisplayName %></span>
-    <span class="wide-card-links-container">
-      <a href="/brands/<%= data.BrandId %>">Info</a>
-      <a>Download Catalogues</a>
-      <a href="/brands/<%= data.BrandId %>/products">Browse Products</a>
-    </span>
-    <span class="wide-card-logo-container">
-      <img class="wide-card-logo" src="<%= data.LogoURL %>" alt="Failed to load <%= data.DisplayName %> logo."/>
+  <div class="wide-card">
+    <span class="wide-card-title">
+      <%= data.Parent.CategoryName %><%= data.Parent.CategoryName.endsWith("s") ? "" : "s" %>
     </span>
   </div>
 <% } %>
