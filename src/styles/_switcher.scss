@@ -1,0 +1,88 @@
+// Kalawati Enterprises Website: The Official Website For Kalawati Enterprises
+// Copyright (C) 2022  Vidhu Kant Sharma <vidhukant@protonmail.ch>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+@import "colors";
+@import "transitions";
+
+$switcher-height: 5rem;
+$switcher-width: 45rem;
+
+$switcher-button-height: 3rem;
+$switcher-button-width: 8.5rem;
+
+$switcher-side-padding: 2rem;
+
+.category-switcher-container {
+  width: 100%;
+  margin: 2rem 0 1rem 0;
+  height: $switcher-height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  .category-switcher {
+    background-color: $card-background-color;
+    height: $switcher-height;
+    width: $switcher-width;
+    padding-left: $switcher-side-padding;
+    padding-right: $switcher-side-padding - 1;
+    border-radius: $switcher-height;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: $border;
+    box-shadow: $default-shadow;
+
+    .text {
+      font-size: 2rem;
+      color: $dark-foreground-color;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 80%;
+
+      a {
+        height: $switcher-button-height;
+        width: $switcher-button-width;
+        font-size: 1.5rem;
+        font-weight: 300;
+        text-decoration: underline;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $dark-foreground-color;
+        background-color: $bright-background-color;
+        border-radius: 2rem;
+        border: 0.13rem solid $dark-background-color;
+        transition: background-color $time-short;
+      }
+
+      a:hover {
+        background-color: $hover-color;
+      }
+
+      .active {
+        background-color: $active-color;
+      }
+    }
+  }
+}

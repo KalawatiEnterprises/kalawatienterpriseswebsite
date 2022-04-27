@@ -14,23 +14,50 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@import "../colors";
-
-$switcher-height: 5rem;
-$switcher-width: 45rem;
-
-$button-height: 3.5rem;
-$button-width: 9.5rem;
-
-$switcher-side-padding: 2rem;
+@import "colors";
+@import "transitions";
 
 $border: 1px solid $dark-background-color;
 
-$card-height: 25rem;
-$card-width: 30rem;
+.cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
-@mixin title {
+.wide-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin card-hover {
+  box-shadow: 0.1rem 0.1rem 0.3rem 0.08rem $dark-background-color;
+  transform: scale(1.05, 1.05);
+
+  .card-button-links-container {
+    display: flex;
+    transform: scale(1, 1);
+  }
+}
+
+@mixin card-title {
   font-weight: 700;
   font-size: 3rem;
   color: $dark-foreground-color;
 }
+
+@mixin card-subtitle {
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: $secondary-foreground-color;
+  margin-bottom: 0.3rem;
+}
+
+@mixin card-description {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: $dark-foreground-color;
+}
+

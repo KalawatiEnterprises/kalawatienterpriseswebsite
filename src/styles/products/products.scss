@@ -16,109 +16,18 @@
 
 @import "../colors";
 @import "../transitions";
-@import "_products_info";
-@import "_brands";
+@import "../cards";
+@import "../switcher";
 
-.category-switcher-container {
-  width: 100%;
-  margin: 2rem 0 1rem 0;
-  height: $switcher-height;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+$card-height: 25rem;
+$card-width: 30rem;
 
-  .category-switcher {
-    background-color: $card-background-color;
-    height: $switcher-height;
-    width: $switcher-width;
-    padding-left: $switcher-side-padding;
-    padding-right: $switcher-side-padding - 1;
-    border-radius: $switcher-height;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: $border;
-    box-shadow: $default-shadow;
-
-    .text {
-      font-size: 2rem;
-      color: $dark-foreground-color;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      align-items: center;
-      width: 80%;
-
-      a {
-        height: $button-height;
-        width: $button-width;
-        font-size: 1.5rem;
-        font-weight: 300;
-        text-decoration: underline;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $dark-foreground-color;
-        background-color: $bright-background-color;
-        border-radius: 2rem;
-        border: 0.13rem solid $dark-background-color;
-        transition: background-color $time-short;
-      }
-
-      a:hover {
-        background-color: $hover-color;
-      }
-
-      .active {
-        background-color: $active-color;
-      }
-    }
-  }
-}
-
-.brand-filter-display {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 1.3rem;
-}
-
-.cards-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.wide-cards-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+.card:hover { @include card-hover; }
 
 .card {
-  .card-title {
-    @include title;
-  }
-
-  .card-subtitle {
-    font-weight: 400;
-    font-size: 1.3rem;
-    color: $secondary-foreground-color;
-
-    margin-bottom: 0.3rem;
-  }
-
-  .card-description {
-    font-weight: 400;
-    font-size: 1.4rem;
-    color: $dark-foreground-color;
-  }
+  .card-title { @include card-title; }
+  .card-subtitle { @include card-subtitle; }
+  .card-description { @include card-description; }
 
   .card-button-links-container {
     position: absolute;
@@ -131,7 +40,7 @@
     transition: transform $time-short - 0.3;
 
     .card-button-link {
-      height: $button-height - 0.8;
+      height: $switcher-button-height - 0.8;
       font-size: 1.5rem;
       font-weight: 300;
       text-decoration: underline;
@@ -172,12 +81,3 @@
   transition: transform 0.3s;
 }
 
-.card:hover {
-  box-shadow: 0.1rem 0.1rem 0.3rem 0.08rem $dark-background-color;
-  transform: scale(1.05, 1.05);
-
-  .card-button-links-container {
-    display: flex;
-    transform: scale(1, 1);
-  }
-}

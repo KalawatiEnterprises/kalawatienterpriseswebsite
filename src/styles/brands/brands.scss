@@ -14,11 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@import "_products";
-
-$border: 1px solid $dark-background-color;
-$wide-card-height: 7rem;
-$logo-width: 15rem;
+@import "../colors";
+@import "../cards";
+@import "../switcher";
+@import "brands_responsive";
 
 .wide-card {
   background-color: $card-background-color;
@@ -36,7 +35,7 @@ $logo-width: 15rem;
   align-items: center;
 
   .wide-card-title {
-    @include title;
+    @include card-title;
     font-size: 2.5rem;
     width: $logo-width;
     // border: 1px solid green;

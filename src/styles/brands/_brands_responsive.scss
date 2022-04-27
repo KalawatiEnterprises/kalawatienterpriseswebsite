@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@import "_products";
+@import "../colors";
 
 $border: 1px solid $dark-background-color;
 $wide-card-height: 7rem;
@@ -26,5 +26,4 @@ $logo-width: 15rem;
     height: 15rem;
     width: 30rem;
   }
-
 }

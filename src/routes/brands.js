@@ -39,7 +39,7 @@ router.get("/all", (_, res) => {
 router.get("/:brandId", (req, res) => {
   const query = `SELECT * FROM Brands WHERE BrandId = ${req.params.brandId}`
   db.query(query, 
-    (_, data) => res.render("brands/index", { brands: data })
+    (_, data) => res.render("brands/brand", { data: data })
   );
 });
 
