@@ -63,3 +63,16 @@ $wide-card-height: 7rem;
   color: $dark-foreground-color;
 }
 
+@mixin card-link {
+  margin: 0 0.5rem;
+  color: $dark-foreground-color;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-decoration: underline;
+  transition: background-color $time-short;
+  padding: 0.1rem;
+}
+
+@mixin card-link-hover {
+  background-color: $hover-color;
+}

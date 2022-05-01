@@ -38,7 +38,6 @@
     @include card-title;
     font-size: 2.5rem;
     width: $logo-width;
-    // border: 1px solid green;
   }
 
   .wide-card-links-container {
@@ -46,17 +45,11 @@
     justify-content: center;
 
     a {
-      margin: 0 0.5rem;
-      color: $dark-foreground-color;
-      font-size: 1.5rem;
-      font-weight: 300;
-      text-decoration: underline;
-      transition: background-color $time-short;
-      padding: 0.1rem;
+      @include card-link;
     }
 
     a:hover {
-      background-color: $hover-color;
+      @include card-link-hover;
     }
   }
 

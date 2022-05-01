@@ -33,9 +33,12 @@
 
 <% const card = (data) => { %>
   <div class="wide-card">
-    <span class="wide-card-title">
-      <%= data.Parent.CategoryName %><%= data.Parent.CategoryName.endsWith("s") ? "" : "s" %>
-    </span>
+    <div class="title-container">
+      <span class="wide-card-title">
+        <%= data.Parent.CategoryName %><%= data.Parent.CategoryName.endsWith("s") ? "" : "s" %>
+      </span>
+      <a href="https://nhentai.net">Browse</a>
+    </div>
   </div>
 <% } %>
 

@@ -34,45 +34,29 @@
   box-sizing: border-box;
   box-shadow: $default-shadow;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
+  // justify-content: space-between;
+  // align-items: center;
 
-  .wide-card-title {
-    @include card-title;
-    font-size: 2.5rem;
-    width: 20rem;
-    // border: 1px solid green;
-  }
-
-  .wide-card-links-container {
+  .title-container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
+    .wide-card-title {
+      @include card-title;
+      font-size: 2.5rem;
+      top: 0;
+      left: 0.5rem;
+    }
     a {
-      margin: 0 0.5rem;
-      color: $dark-foreground-color;
-      font-size: 1.5rem;
-      font-weight: 300;
-      text-decoration: underline;
-      transition: background-color $time-short;
-      padding: 0.1rem;
+      @include card-link;
+      font-size: 2rem;
     }
-
     a:hover {
-      background-color: $hover-color;
-    }
-  }
-
-  .wide-card-logo-container {
-    display: flex;
-    justify-content: center;
-    width: 20rem;
-
-    img {
-      max-width: 20rem;
-      max-height: $wide-card-height - 0.5; 
+      @include card-link-hover;
     }
   }
 }

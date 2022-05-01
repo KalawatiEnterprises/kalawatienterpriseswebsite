@@ -14,30 +14,60 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@media only screen and (max-device-width: 1300px) {
-  .navbar {
-    flex-direction: column;
+@import "../colors";
+
+$bottom-navbar-height: 4rem;
+
+.links-menu-button {
+  color: white;
+  font-size: 3rem;
+  // display: none;
+}
+
+.bottom-navbar {
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  height: $bottom-navbar-height;
+  width: 100%;
+  background-color: $bright-background-color;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  // display: none;
+
+  .bottom-links-container {
+    display: flex;
     align-items: center;
+    justify-content: space-evenly;
 
-    .logo-anchor {
-      display: none;
+    height: calc($bottom-navbar-height - 0.5rem);
+    width: 100%;
+
+    a {
+      text-decoration: none;
+      .bottom-navbar-button {
+        color: $dark-background-color;
+        font-size: 2rem;
+      }
     }
+  }
+}
 
+@media only screen and (max-device-width: 1024px) {
+  .navbar {
+    align-items: space-between;
     .links {
-      padding: 0;
-    }
-  }
-}
-
-@media only screen and (max-device-width: 600px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-
-    .logo-anchor {
       display: none;
-
-      font-size: 1rem;
+    }
+    .links-menu-button {
+      display: block;
     }
   }
+  .bottom-navbar {
+    display: flex;
+  }
 }
+
