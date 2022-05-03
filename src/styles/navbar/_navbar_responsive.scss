@@ -54,39 +54,27 @@ $bottom-navbar-height: 4rem;
 @media only screen and (max-device-width: 1024px) {
   $navheight: $navbar-height;
   .navbar {
-    justify-content: center;
-    // background-color: $bright-background-color;
+    justify-content: space-around;
     height: $navheight;
-
     .logo-anchor {
       // with explicit min and max width it will never change
       min-width: $navheight;
       max-width: $navheight;
       height: $navheight;
-      position: absolute;
-      top: 0;
-      left: 0;
       .img-logo {
         display: block;
         height: 100%;
       }
       .text-logo { display: none; }
     }
-
-    .links {
-      width: auto;
-      // hide elements on phone that are present in bottom_navbar
-      #navbar-home-button, #navbar-products-button,
-      #navbar-locate-button, #navbar-contact-button { display: none; }
-    }
-  }
-  .bottom-navbar {
-    display: flex;
   }
 }
 
 @media only screen and (max-device-width: 800px) {
   $navheight: $navbar-alt-height;
+  .bottom-navbar {
+    display: flex;
+  }
   .navbar {
     justify-content: space-between;
     height: $navheight;
@@ -95,7 +83,6 @@ $bottom-navbar-height: 4rem;
       min-width: $navheight;
       max-width: $navheight;
       height: $navheight;
-      position: relative;
     }
 
     .links {
@@ -106,6 +93,9 @@ $bottom-navbar-height: 4rem;
         padding: 0.5em;
         box-shadow: $default-shadow;
       }
+      // hide elements on phone that are present in bottom_navbar
+      #navbar-home-button, #navbar-products-button,
+      #navbar-locate-button, #navbar-contact-button { display: none; }
     }
   }
 }
