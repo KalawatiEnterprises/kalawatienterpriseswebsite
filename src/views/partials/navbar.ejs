@@ -16,22 +16,31 @@
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
-<% const links = [{Name: "Home", Anchor: "/home", Id: "home"}, {Name: "Products", Anchor: "/products/all", Id: "products"}, {Name: "Contact Us", Anchor: "/contact", Id: "contact"}, {Name: "Updates", Anchor: "/updates", Id: "updates"}, {Name: "Offers", Anchor: "/offers", Id: "offers"}, {Name: "Locate Us", Anchor: "/locate", Id: "locate"} ] %>
+<% const links = [
+  {Name: "Home", Anchor: "/home", Id: "home"},
+  {Name: "Products", Anchor: "/products/all", Id: "products"}, 
+  {Name: "Contact Us", Anchor: "/contact", Id: "contact"}, 
+  {Name: "Updates", Anchor: "/updates", Id: "updates"}, 
+  {Name: "Offers", Anchor: "/offers", Id: "offers"}, 
+  {Name: "Locate Us", Anchor: "/locate", Id: "locate"}, 
+  {Name: "Social", Anchor: "/social", Id: "social"} 
+] %>
 
 <div class="navbar">
   <a class="logo-anchor" href="/">
-    <span class="logo">
+    <span class="text-logo">
       Kalawati Enterprises
     </span>
+    <img src="/logo.png" class="img-logo"/>
   </a>
 
-  <span class="links">
+  <div class="links">
     <% links.forEach(link => { %>
-      <a href="<%= link.Anchor %>" class="<%= activePage === link.Id ? 'active' : '' %>">
+      <a href="<%= link.Anchor %>" class="<%= activePage === link.Id ? 'active' : '' %>" id="navbar-<%= link.Id %>-button">
         <%= link.Name %>
       </a>
     <% }) %>
-  </span>
+  </div>
 </div>
 
 <%- include("bottom_navbar", {activePage: "home"}); %>

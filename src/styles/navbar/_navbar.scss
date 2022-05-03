@@ -30,6 +30,7 @@ $links-width: 40rem;
   background-color: $navbar-background-color;
   box-sizing: border-box;
   display: flex;
+  overflow: hidden;
   justify-content: space-around;
   align-items: center;
 
@@ -38,7 +39,7 @@ $links-width: 40rem;
     color: $dark-foreground-color;
   }
 
-  .logo {
+  .text-logo {
     background-color: $active-color;
     border-radius: $logo-height / 4;
     height: $logo-height;
@@ -51,12 +52,14 @@ $links-width: 40rem;
     text-decoration: underline;
   }
 
+  .img-logo { display: none; }
+
   .links {
     background-color: $bright-background-color;
     height: $links-height;
     width: $links-width;
     padding: 0 0.5rem;
-    border-radius: $links-height / 4;
+    border-radius: calc($links-height / 4);
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -73,7 +76,7 @@ $links-width: 40rem;
       transition: background-color $time-short;
     }
 
-    a:hover {
+    a:hover, a:active {
       background-color: $hover-color;
     }
 
