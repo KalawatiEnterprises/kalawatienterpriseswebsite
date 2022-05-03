@@ -14,16 +14,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@import "colors";
-@import "transitions";
-
-$switcher-height: 5rem;
-$switcher-width: 45rem;
-
-$switcher-button-height: 3rem;
-$switcher-button-width: 8.5rem;
-
-$switcher-side-padding: 2rem;
+@import "../colors";
+@import "../transitions";
+@import "switcher_globals";
 
 .category-switcher-container {
   width: 100%;
@@ -39,7 +32,7 @@ $switcher-side-padding: 2rem;
     height: $switcher-height;
     width: $switcher-width;
     padding-left: $switcher-side-padding;
-    padding-right: $switcher-side-padding - 1;
+    padding-right: calc($switcher-side-padding - 1rem);
     border-radius: $switcher-height;
     display: flex;
     flex-direction: row;
@@ -86,3 +79,5 @@ $switcher-side-padding: 2rem;
     }
   }
 }
+
+@import "switcher_responsive";

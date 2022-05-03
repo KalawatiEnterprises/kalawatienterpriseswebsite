@@ -14,28 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@import "colors";
-@import "navbar/navbar.scss";
+$switcher-height: 5rem;
+$switcher-width: 45rem;
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
-@import url('/css/fontawesome/all.min.css');
+$switcher-button-height: 3rem;
+$switcher-button-width: 8.5rem;
 
-// font config
-* {
-  font-family: 'Lato', sans-serif;
-}
-
-html, body {
- height: 100%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: $secondary-bright-background-color;
-}
-
-.error-message {
-  text-align: center;
-  font-size: 1.5rem;
-}
+$switcher-side-padding: 2rem;
