@@ -16,13 +16,19 @@
   along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
 
-<% const links = [{Name: "Home", IconClass: "fas fa-home", Anchor: "/home", Id: "home"}, {Name: "Products", IconClass: "fas fa-list", Anchor: "/products/all", Id: "products"}, {Name: "Contact Us", IconClass: "fas fa-headset", Anchor: "/contact", Id: "contact"}, /*{Name: "Updates", IconClass: "fas fa-newspaper", Anchor: "/updates", Id: "updates"}, {Name: "Offers", IconClass: "fas fa-percentage", Anchor: "/offers", Id: "offers"},*/ {Name: "Locate Us", IconClass: "fas fa-map-marker-alt", Anchor: "/locate", Id: "locate"} ] %>
+<% const links = [
+  {Name: "Home", IconClass: "fas fa-home", Anchor: "/home", Id: "home"}, 
+  {Name: "Products", IconClass: "fas fa-list", Anchor: "/products/all", Id: "products"}, 
+  {Name: "Contact Us", IconClass: "fas fa-headset", Anchor: "/contact", Id: "contact"}, 
+  {Name: "Locate Us", IconClass: "fas fa-map-marker-alt", Anchor: "/locate", Id: "locate"} 
+] %>
 
 <div class="bottom-navbar">
   <div class="bottom-links-container">
     <% links.forEach(link => { %>
       <a href="<%= link.Anchor %>" class="<%= activePage === link.Id ? 'active' : '' %>">
         <i class="bottom-navbar-button <%= link.IconClass %>"></i>
+        <span class="button-label"><%= link.Name %></span>
       </a>
     <% }) %>
   </div>
