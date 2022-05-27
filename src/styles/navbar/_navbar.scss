@@ -40,7 +40,7 @@ $links-width: 40rem;
 
   .text-logo {
     background-color: $active-color;
-    border-radius: $logo-height / 4;
+    border-radius: calc($logo-height / 4);
     height: $logo-height;
     width: $logo-width;
     display: flex;

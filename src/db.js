@@ -19,19 +19,14 @@ import mysql from "mysql";
 const config = {
   host: "localhost",
   user: "zt",
-  password: "",
+  password: "sukidatte",
   database: "kalawatidb",
-  multipleStatements: true
 }
 
-/* const createDb = () => {
- *   const sql: string = "CREATE DATABASE kalawatidb";
- *
- *   db.query(sql, (err, res) => {
- *     if (err) throw err;
- *     console.log("Created Database successfully.");
- *     console.log(res);
- *   });
- * } */
+const db = mysql.createConnection(config);
 
-export default mysql.createConnection(config);
+db.connect(err => {
+  if (err) throw err;
+});
+
+export default db;

@@ -14,20 +14,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+// TODO: properly handle database errors
+
 import express from "express";
 import db from "../db.js";
 
 const router = express.Router();
 
-// send all products with category and brand id replaced with actual names
+const getAllProducts = (callback) => {
+  const qry  = `SELECT Products.ID, Products.Name, Products.Description, Brands.DisplayName AS Brand,
+  GROUP_CONCAT(Categories.Name) AS Categories 
+  From Products 
+  INNER JOIN Product_Categories ON Products.ID = Product_Categories.ProductID
+  INNER JOIN Categories ON Product_Categories.CategoryID = Categories.ID
+  INNER JOIN Brands ON Products.BrandID = Brands.ID
+  GROUP BY Products.ID`;
+
+  db.query(qry, (err, data) => err ? callback(err) : callback(data));
+}
+
 router.get("/all", (_, res) => {
-  const query = `SELECT ProductId, Products.Name, Description, 
-  Categories.CategoryName AS Category, Brands.DisplayName AS Brand
-  FROM Products
-  INNER JOIN Brands ON Products.Brand = Brands.BrandId
-  INNER JOIN Categories ON Products.Category = Categories.CategoryId`;
-  db.query(query, (_, data) =>
-    res.render("products/index", { products: data, switcherOption: "all" }));
-});
+  getAllProducts((data) =>
+    res.render("products/index", {products: data, switcherOption: "all"})
+  );
+})
 
 export default router;

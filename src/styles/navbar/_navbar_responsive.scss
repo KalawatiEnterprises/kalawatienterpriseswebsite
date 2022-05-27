@@ -25,7 +25,7 @@ $bottom-navbar-height: 3.6rem;
   bottom: 0;
   height: $bottom-navbar-height;
   width: 100%;
-  background-color: rgba($navbar-background-color, 0.9);
+  background-color: $bottom-navbar-background-color;
   display: none;
   flex-direction: row;
   align-items: flex-end;
