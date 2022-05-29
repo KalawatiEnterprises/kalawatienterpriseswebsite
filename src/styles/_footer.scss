@@ -1,0 +1,14 @@
+@import "colors";
+@import "transitions";
+
+.footer {
+  background-color: $footer-background-color;
+  color: $secondary-foreground-color;
+  padding: 0;
+  margin: 0;
+
+  .footer-content {
+    padding: 0.8rem;
+  }
+
+}

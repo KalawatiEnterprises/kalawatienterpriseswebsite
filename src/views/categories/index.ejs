@@ -35,7 +35,7 @@
   <div class="wide-card">
     <div class="title-container">
       <span class="wide-card-title">
-        <%= data.Parent.CategoryName %><%= data.Parent.CategoryName.endsWith("s") ? "" : "s" %>
+        <%= data.Parent.Name %><%= data.Parent.Name.endsWith("s") ? "" : "s" %>
       </span>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Browse</a>
     </div>
@@ -57,5 +57,7 @@
       <%= categories.forEach(i => card(i)); %>
     <% } %>
   </div>
+
+  <%- include("../partials/footer", {activePage: "products"}); %>
 </body>
 </html>

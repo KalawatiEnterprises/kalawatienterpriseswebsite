@@ -24,7 +24,7 @@ import categories from "./routes/categories.js";
 import photos from "./routes/photos.js";
 
 // get port from ENV or use fallback
-const PORT = process.env.PORT || "3000";
+const PORT = process.env.PORT || "4000";
 
 // this is the server
 const app = express();

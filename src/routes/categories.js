@@ -20,11 +20,12 @@ import db from "../db.js";
 const router = express.Router();
 
 const groupByParent = (x) => 
-  x.filter(i => !i.ParentId).map(i => ({ Parent: i, Children: x.filter(j => j.ParentId === i.CategoryId)}));
+  x.filter(i => !i.ParentID).map(i => ({ Parent: i, Children: x.filter(j => j.ParentID === i.ID)}));
 
 // send all categories
 router.get("/all", (_, res) => {
-  const query = `SELECT CategoryName, CategoryId, ParentId FROM Categories`;
+  // const query = `SELECT CategoryName, CategoryId, ParentId FROM Categories`;
+  const query = `SELECT ID, ParentID, Name FROM Categories GROUP BY ID`
   db.query(query, (_, data) =>
     res.render("categories/index", { categories: groupByParent(data), switcherOption: "categories" }));
 });

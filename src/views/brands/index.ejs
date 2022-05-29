@@ -36,9 +36,9 @@
   <div class="wide-card" id="<%= data.BrandId %>">
     <span class="wide-card-title"><%= data.DisplayName %></span>
     <span class="wide-card-links-container">
-      <a href="/brands/<%= data.BrandId %>">Info</a>
-      <a>Download Catalogues</a>
-      <a href="/brands/<%= data.BrandId %>/products">Browse Products</a>
+      <a href="/brands/<%= data.ID %>">Info</a>
+      <a href="https://vidhukant.xyz">Download Catalogues</a>
+      <a href="/brands/<%= data.ID %>/products">Browse Products</a>
     </span>
     <span class="wide-card-logo-container">
       <img class="wide-card-logo" src="<%= data.LogoURL %>" alt="Failed to load <%= data.DisplayName %> logo."/>
@@ -61,5 +61,7 @@
       <%= brands.forEach(i => card(i)); %>
     <% } %>
   </div>
+
+  <%- include("../partials/footer", {activePage: "products"}); %>
 </body>
 </html>

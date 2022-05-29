@@ -21,17 +21,17 @@ const router = express.Router();
 
 // return all brands
 router.get("/all", (_, res) => {
-  const query = `SELECT BrandId, DisplayName, Name, LogoURL FROM Brands`;
+  const query = `SELECT ID, DisplayName, LogoURL FROM Brands`;
   db.query(query, 
     (_, data) => res.render("brands/index", { brands: data }));
 });
 
 // return info about brand
 // TODO: SELECT * is used
-router.get("/:brandId", (req, res) => {
-  const query = `SELECT * FROM Brands WHERE BrandId = ${req.params.brandId}`;
+router.get("/:ID", (req, res) => {
+  const query = `SELECT * FROM Brands WHERE ID = ${req.params.ID}`;
   db.query(query, 
-    (_, data) => res.render("brands/brand", { data: data }));
+    (_, data) => res.render("brands/brand", { data: data[0] }));
 });
 
 // return products related to specific brand

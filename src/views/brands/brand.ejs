@@ -20,11 +20,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kalawati Enterprises | <%= data.DisplayName %> is one of the many brands we have partenered with." />
 
   <title>
-    Kalawati Enterprises BETA Products (Brands) Page
+    <%= data.DisplayName %> | Kalawati Enterprises
   </title>
 
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
@@ -35,7 +36,8 @@
   <!-- navbar -->
   <%- include("../partials/navbar", {activePage: "products"}); %>
 
-  <h1>COMING SOON</h1>
+  <h1><%= data.Name %></h1>
 
+  <%- include("../partials/footer", {activePage: "products"}); %>
 </body>
 </html>

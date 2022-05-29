@@ -20,7 +20,7 @@ $navbar-alt-height: 3.8rem;
 $bottom-navbar-height: 3.6rem;
 
 .bottom-navbar {
-  position: fixed;
+  position: sticky;
   z-index: 1;
   bottom: 0;
   height: $bottom-navbar-height;
