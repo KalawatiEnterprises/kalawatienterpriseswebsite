@@ -14,20 +14,24 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import mysql from "mysql";
+import express from "express";
 import "dotenv/config";
+import nodemailer from "nodemailer";
+import handleContactMail from "../mail.js"
 
-const config = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_DATABASE,
-}
+const router = express.Router();
+router.get("/", (_, res) => res.render("contactpage"));
 
-const db = mysql.createConnection(config);
-
-db.connect(err => {
-  if (err) throw err;
+router.post("/", (req, res) => {
+  console.log(req.body)
+  handleContactMail({
+    Name: req.body.name,
+    Phone: req.body.phone,
+    Email: req.body.email,
+    Msg: req.body.message
+  });
+  // TODO: redirect properly
+  res.send("<h1>We've sent all the details to the admin and a copy to you!</h1>");
 });
 
-export default db;
+export default router;

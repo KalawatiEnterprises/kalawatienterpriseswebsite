@@ -28,15 +28,28 @@
 
   <link rel="stylesheet" type="text/css" href="/css/styles.css" />
   <link rel="stylesheet" type="text/css" href="/css/contact.css" />
+  <script src="/scripts/form_validator.js"></script>
 </head>
 
 <body>
   <%- include("partials/navbar", {activePage: "contact"}); %>
 
-  <div class="contact-card-container">
-    <div class="contact-card">
-      <h2>Contact Us</h2>
-    </div>
+  <div class="contactpage-main">
+    <form name="contactform" method="POST" action="/contact">
+      <label>
+        Name: <input type="text" name="name" placeholder="Your Name Here" required/>
+      </label>
+      <label>
+        Phone: <input type="tel" name="phone" placeholder="Your Phone Number"/>
+      </label>
+      <label>
+        E-Mail: <input type="email" name="email" placeholder="Your Email Address"/>
+      </label>
+      <label>
+        Message: <textarea name="message" placeholder="Your message here" rows="2"></textarea>
+      </label>
+      <input type="button" value="Submit" onclick="postForm()">
+    </form>
   </div>
   <%- include("partials/footer", {activePage: "contact"}); %>
 </body>

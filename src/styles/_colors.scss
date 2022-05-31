@@ -18,7 +18,8 @@ $dark-background-color: #232627;
 $footer-background-color: #1a2a30;
 $bright-background-color: #FFFFFF;
 $secondary-bright-background-color: #dfe0e8;
-$navbar-background-color: rgba($dark-background-color, 0.8);
+// $navbar-background-color: rgba($dark-background-color, 0.8);
+$navbar-background-color: $footer-background-color;
 $bottom-navbar-background-color: rgba($dark-background-color, 0.9);
 $card-background-color: $bright-background-color;
 

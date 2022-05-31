@@ -14,20 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-import mysql from "mysql";
-import "dotenv/config";
-
-const config = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_DATABASE,
+const postForm = () => {
+  console.log(contactform.email.value, contactform.phone.value)
+  if (contactform.email.value == "" && contactform.phone.value == "") {
+    alert("fuck you")
+  } else {
+    contactform.submit();
+  }
 }
-
-const db = mysql.createConnection(config);
-
-db.connect(err => {
-  if (err) throw err;
-});
-
-export default db;
