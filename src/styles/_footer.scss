@@ -3,12 +3,44 @@
 
 .footer {
   background-color: $footer-background-color;
-  color: $secondary-foreground-color;
+  color: $footer-foreground-color;
+  width: 100%;
   padding: 0;
   margin: 0;
+  margin-top: 2rem;
+  position: absolute;
+  box-shadow: 0 0 10px $dark-background-color;
+
+  .logo {
+    img {
+      height: 100%;
+    }
+    display: flex;
+    align-items: center;
+    margin: 0.5rem auto;
+    height: 4rem;
+    background-color: $active-color;
+    font-size: 2rem;
+    color: $dark-foreground-color;
+    span {
+      // not sure if I wanna keep it
+      display: none;
+    }
+  }
 
   .footer-content {
-    padding: 0.8rem;
+    .website-copyright {
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin: 1rem 0;
+      a {
+        color: $footer-foreground-color;;
+      }
+    }
   }
 
 }

@@ -16,13 +16,7 @@
 
 import express from "express";
 import * as url from 'url';
-// import db from "../db";
-// 
-// // connect to database
-// db.connect(err => {
-//   if (err) throw err;
-// });
-// const __filename = url.fileURLToPath(import.meta.url);
+
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const router = express.Router();
