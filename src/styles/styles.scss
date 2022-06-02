@@ -41,3 +41,10 @@ body {
   text-align: center;
   font-size: 1.5rem;
 }
+
+::selection {
+  background: rgba($active-color, 0.5);
+}
+::-moz-selection {
+  background: rgba($active-color, 0.5);
+}
