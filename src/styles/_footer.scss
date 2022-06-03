@@ -62,6 +62,10 @@ $flex-map-width: calc($flex-div-width + 6rem);
         display: flex;
         flex-direction: column;
         align-items: left;
+        i {
+          width: 1.3rem;
+          text-align: center;
+        }
         a {
           color: $footer-foreground-color;
           margin: 2px 0;
