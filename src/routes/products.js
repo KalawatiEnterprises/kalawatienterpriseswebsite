@@ -35,8 +35,7 @@ const getAllProducts = (callback) => {
 
 router.get("/all", (_, res) => {
   getAllProducts((data) =>
-    res.render("products/index", {products: data, switcherOption: "all"})
-  );
+    res.render("products/index", {products: data, switcherOption: "all"}));
 })
 
 export default router;

@@ -24,9 +24,12 @@ $links-height: $logo-height;
 $links-width: 40rem;
 
 .navbar {
+  position: fixed;
+  top: 0;
   height: $navbar-height;
   width: 100%;
-  background-color: $navbar-background-color;
+  // background-color: $navbar-background-color;
+  background-color: rgba($navbar-background-color, 0.8);
   box-sizing: border-box;
   display: flex;
   overflow: hidden;
