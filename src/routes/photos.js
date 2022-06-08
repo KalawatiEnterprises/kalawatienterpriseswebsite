@@ -29,7 +29,7 @@ const categoryPhotosRoot = __dirname + "../../public/photos/categories";
 // TODO: /:productId returns page containing all the photos of the product
 
 router.get("/products/:productId/:imageId", (req, res) => {
-  res.sendFile(`${req.params.productId}/${req.params.imageId}.jpg`, { root: productPhotosRoot });
+  res.sendFile(`${req.params.productId}/${req.params.imageId}.webp`, { root: productPhotosRoot });
 });
 
 router.get("/brands/:brandId/:imageId", (req, res) => {
